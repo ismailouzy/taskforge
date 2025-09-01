@@ -1,0 +1,34 @@
+# Python/Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.env
+
+# Django
+*.log
+*.pot
+*.pyc
+migrations/
+*.sqlite3
+
+# Docker
+*.dockerignore
+Dockerfile.*
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Misc
+*.DS_Store
+*.bak
+*.backup
