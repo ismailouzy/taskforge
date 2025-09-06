@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import timedelta
 
 # Load envirement variables from .env file
 load_dotenv()
@@ -127,6 +128,24 @@ REST_FRAMEWORK = {
         'user': '100/minute',
     },
 }
+
+# Simple JWT configuration (added for token management in login/registration)
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Short-lived access token
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # Longer refresh token
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+# Email configuration for async notifications (e.g., welcome emails)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Use console for dev; change to SMTP in prod
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'localhost')
+EMAIL_PORT = os.getenv('EMAIL_PORT', 1025)
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'noreply@taskforge.com'
 
 # Redis cache configuration
 CACHES = {

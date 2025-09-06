@@ -14,11 +14,11 @@ psycopg2-binary==2.9.9
 django-redis==5.4.0
 redis==5.0.8
 
-# Celery for async task processing
-celery==5.4.0
 
 # RabbitMQ client for event-driven messaging
 pika==1.3.2
 
 # For environment variable management
 python-dotenv==1.0.1
+
+celery[redis,email]==5.4.0
